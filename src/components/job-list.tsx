@@ -196,7 +196,7 @@ const JobList = () => {
                     className="cursor-pointer"
                     onClick={() => router.push(`/jobs/${job.id}`)}
                   >
-                    <TableCell className="flex items-center space-x-2">
+                    <TableCell className="flex items-center space-x-2 capitalize">
                       {job.company_logo && (
                         <Image
                           src={job.company_logo}
@@ -207,10 +207,14 @@ const JobList = () => {
                       )}
                       {job.job_title}
                     </TableCell>
-                    <TableCell>{job.job_type}</TableCell>
-                    <TableCell>{job.required_skills}</TableCell>
-                    <TableCell>{job.languages}</TableCell>
-                    <TableCell>{job.tags}</TableCell>
+                    <TableCell className="capitalize">{job.job_type}</TableCell>
+                    <TableCell className="capitalize">
+                      {job.required_skills}
+                    </TableCell>
+                    <TableCell className="capitalize">
+                      {job.languages}
+                    </TableCell>
+                    <TableCell className="capitalize">{job.tags}</TableCell>
                   </motion.tr>
                 ))}
               </TableBody>
