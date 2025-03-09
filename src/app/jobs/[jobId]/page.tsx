@@ -1,5 +1,6 @@
 "use client";
 
+import { use } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
@@ -9,11 +10,9 @@ import { getJob } from "@/actions/get-job";
 import { IJobLists } from "@/interfaces/get-jobs-interface";
 import Link from "next/link";
 
-const JobDetailsPage = ({
-  params: { jobId },
-}: {
-  params: { jobId: string };
-}) => {
+const JobDetailsPage = ({ params }: { params: Promise<{ jobId: string }> }) => {
+  const { jobId } = use(params);
+
   const {
     data: job,
     isLoading,
